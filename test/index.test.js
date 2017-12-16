@@ -9,14 +9,16 @@ describe('/coins', () => {
         });
     });
       
-    test('loads', () => {
+    test('loads', done => {
         expect(result.result).toBeTruthy();
         expect(result.statusCode).toBe(200);
         expect(result.data.length).toBeGreaterThan(0);
+        done();
     });
 
-    test('check for BTC', () => {
+    test('check for BTC', done => {
         expect(result.data.indexOf('BTC')).toBeGreaterThan(0);
+        done();
     });
 });
 
@@ -29,13 +31,14 @@ describe('/map', () => {
         });
     });
       
-    test('loads', () => {
+    test('loads', done => {
         expect(result.result).toBeTruthy();
         expect(result.statusCode).toBe(200);
         expect(result.data.length).toBeGreaterThan(0);
+        done();
     });
 
-    test('check for BTC', () => {
+    test('check for BTC', done => {
         foundBTC = false;
         for(coin of result.data) {
             if (coin.symbol === 'BTC'){
@@ -44,6 +47,7 @@ describe('/map', () => {
             }
         }
         expect(foundBTC).toBeTruthy();
+        done();
     });
 
 });
@@ -57,13 +61,14 @@ describe('/front', () => {
         });
     });
       
-    test('loads', () => {
+    test('loads', done => {
         expect(result.result).toBeTruthy();
         expect(result.statusCode).toBe(200);
         expect(result.data.length).toBeGreaterThan(0);
+        done();
     });
 
-    test('check for BTC', () => {
+    test('check for BTC', done => {
         foundBTC = false;
         for(coin of result.data) {
             if (coin.short === 'BTC'){
@@ -72,6 +77,7 @@ describe('/front', () => {
             }
         }
         expect(foundBTC).toBeTruthy();
+        done();
     });
 
 });
@@ -85,15 +91,30 @@ describe('/global', () => {
         });
     });
       
-    test('loads', () => {
+    test('loads', done => {
         expect(result.result).toBeTruthy();
         expect(result.statusCode).toBe(200);
         expect(Object.keys(result.data).length).toBeGreaterThan(0);
+        done();
     });
 
-    test('check for btcPrice', () => {
-        console.log(result);
+    test('check for btcPrice', done => {
         expect(result.data.btcPrice).toBeGreaterThan(0);
+        done();
+    });
+
+});
+
+describe('/page/coin', () => {
+
+    test('loads', done => {
+        const coin = 'BTC';
+        coincap.getCoin(coin).then(result => {
+            expect(result.result).toBeTruthy();
+            expect(result.statusCode).toBe(200);
+            expect(result.data.id).toEqual(coin);
+            done();
+        });
     });
 
 });

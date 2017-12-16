@@ -17,6 +17,10 @@ exports.global = async function global() {
     return createResult(await got(`${url}/global`));
 }
 
+exports.getCoin = async function getCoin(currency) {
+    return createResult(await got(`${url}/page/${currency}`));
+}
+
 function createResult(data) {
     const result = {result : data.statusCode === 200, statusCode: data.statusCode, data: data.body};
     if (result.statusCode === 200) {

@@ -1,6 +1,6 @@
 {
   "name": "coincap",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "coincap api module",
   "main": "./src/index.js",
   "scripts": {
