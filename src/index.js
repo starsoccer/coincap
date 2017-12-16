@@ -13,6 +13,10 @@ exports.front = async function front() {
     return createResult(await got(`${url}/front`));
 }
 
+exports.global = async function global() {
+    return createResult(await got(`${url}/global`));
+}
+
 function createResult(data) {
     const result = {result : data.statusCode === 200, statusCode: data.statusCode, data: data.body};
     if (result.statusCode === 200) {

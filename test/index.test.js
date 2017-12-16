@@ -75,3 +75,25 @@ describe('/front', () => {
     });
 
 });
+
+describe('/global', () => {
+    let result;
+    beforeAll(() => {
+        return coincap.global().then(data => {
+            result = data;
+            return data;
+        });
+    });
+      
+    test('loads', () => {
+        expect(result.result).toBeTruthy();
+        expect(result.statusCode).toBe(200);
+        expect(Object.keys(result.data).length).toBeGreaterThan(0);
+    });
+
+    test('check for btcPrice', () => {
+        console.log(result);
+        expect(result.data.btcPrice).toBeGreaterThan(0);
+    });
+
+});
