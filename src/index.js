@@ -9,6 +9,10 @@ exports.map = async function map() {
     return createResult(await got(`${url}/map`));
 }
 
+exports.front = async function front() {
+    return createResult(await got(`${url}/front`));
+}
+
 function createResult(data) {
     const result = {result : data.statusCode === 200, statusCode: data.statusCode, data: data.body};
     if (result.statusCode === 200) {
