@@ -1,7 +1,7 @@
 describe('/coins', () => {
 
     test('loads', () => {
-        const coincap = require('./index.js');
+        const coincap = require('../src');
         coincap.getCoins().then(result => {
             expect(result.result).toBeTruthy();
             expect(result.statusCode).toBe(200);
