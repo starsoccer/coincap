@@ -1,0 +1,2 @@
+# coincap
+coincap NPM module
