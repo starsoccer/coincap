@@ -1,6 +1,6 @@
 {
   "name": "coincap",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "coincap api module",
   "main": "./src/index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/starsoccer/coincap#readme",
   "dependencies": {
-    "got": "^8.0.1"
+    "got": "^8.3.1"
   },
   "devDependencies": {
     "jest": "^21.2.1"
