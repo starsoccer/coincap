@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/starsoccer/coincap#readme",
   "dependencies": {
-    "got": "^10.0.1"
+    "got": "^11.8.5"
   },
   "devDependencies": {
     "jest": "^24.8.0"
